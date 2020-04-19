@@ -10,6 +10,7 @@ $ yarn add typeorm pg
 * creation
 ```
 $ yarn typeorm migration:create -n CreateAppointments
+$ yarn typeorm migration:create -n CreateUsers
 ```
 
 * run migration
