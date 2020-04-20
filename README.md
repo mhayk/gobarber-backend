@@ -11,6 +11,7 @@ $ yarn add typeorm pg
 ```
 $ yarn typeorm migration:create -n CreateAppointments
 $ yarn typeorm migration:create -n CreateUsers
+$ yarn typeorm migration:create -n AddAvatarFieldToUsers
 ```
 
 * run migration
