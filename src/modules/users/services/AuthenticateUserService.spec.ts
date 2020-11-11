@@ -50,4 +50,32 @@ describe('AuthenticateUser', () => {
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
+
+  it('should not be able to authenticate with wrong password', async () => {
+    const fakeUsersRepository = new FakeUsersRepository();
+    const fakeHashProvider = new FakeHashProvider();
+
+    const createUser = new CreateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+
+    const authenticateUser = new AuthenticateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+
+    await createUser.execute({
+      name: 'John Doe',
+      email: 'jhondoe@example.com',
+      password: '1234',
+    });
+
+    expect(
+      authenticateUser.execute({
+        email: 'jhondoe@example.com',
+        password: 'wrong-password',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
 });
