@@ -5,7 +5,7 @@ import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 import UpdateUserAvatarService from './UpdateUserAvatarService';
 
 describe('UpdateUserAvatar', () => {
-  it('it should be able to update the avatar user', async () => {
+  it('should be able to update the avatar user', async () => {
     const fakeUserRepository = new FakeUsersRepository();
     const fakeStorageProvider = new FakeStorageProvider();
 
@@ -26,5 +26,22 @@ describe('UpdateUserAvatar', () => {
     });
 
     expect(user.avatar).toBe('avatar.jpg');
+  });
+
+  it('should not be able to update the avatar from non existing user', async () => {
+    const fakeUserRepository = new FakeUsersRepository();
+    const fakeStorageProvider = new FakeStorageProvider();
+
+    const updateUserAvatar = new UpdateUserAvatarService(
+      fakeUserRepository,
+      fakeStorageProvider,
+    );
+
+    expect(
+      updateUserAvatar.execute({
+        user_id: 'non-existing-user',
+        avatarFilename: 'avatar.jpg',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 });
