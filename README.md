@@ -24,6 +24,18 @@ $ yarn typeorm migration:run
 $ yarn typeorm migration:revert
 ```
 
+## Tests - Jest
+
+### Run Tests
+```
+$ yarn test
+```
+
+### Run a specific test
+```
+$ yarn test src/modules/users/services/SendForgotPasswordEmailService.spec.ts
+```
+
 ## PostgreSQL
 
 ### Generate A UUID In PostgreSQL
