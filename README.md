@@ -13,6 +13,7 @@ $ yarn typeorm migration:create -n CreateAppointments
 $ yarn typeorm migration:create -n CreateUsers
 $ yarn typeorm migration:create -n AddAvatarFieldToUsers
 $ yarn typeorm migration:create -n CreateUserTokens
+$ yarn typeorm migration:create -n AddUserIdToAppointments
 ```
 
 * run migration
@@ -35,6 +36,11 @@ $ yarn test
 ### Run a specific test
 ```
 $ yarn test src/modules/users/services/SendForgotPasswordEmailService.spec.ts
+```
+
+### Clear Jest Cache
+```
+$ yarn jest --clearCache
 ```
 
 ## PostgreSQL
