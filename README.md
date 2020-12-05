@@ -128,3 +128,15 @@ CREATE EXTENSION
 - O usuário não pode agendar em um horário já ocupado;
 - O usuário não pode agendar em um horário que já passou;
 - O usuário não pode agendar serviços consigo mesmo;
+
+
+# Docker
+
+## MongoDB
+
+
+Creating a instance with mongodb:
+
+```
+$ docker run --name mongodb -p 27017:27017 -d -t mongo
+```
