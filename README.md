@@ -134,9 +134,20 @@ CREATE EXTENSION
 
 ## MongoDB
 
-
 Creating a instance with mongodb:
 
 ```
 $ docker run --name mongodb -p 27017:27017 -d -t mongo
+```
+
+## Redis
+
+Creating a instance of redis:
+```
+$ docker run --name redis -p 6379:6379 -d -t redis:alpine
+```
+
+Start the container
+```
+$ docker start redis
 ```
